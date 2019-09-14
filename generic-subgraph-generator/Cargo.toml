@@ -5,8 +5,8 @@ authors = ["Insanitybit <insanitybit@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-graph-generator-lib = { path = "../graph-generator-lib/" }
-graph-descriptions = { path = "../graph-descriptions/" }
+graph-generator-lib = { path = "./graph-generator-lib/" }
+graph-descriptions = { path = "./graph-descriptions/" }
 sqs-lambda = "0.6.*"
 
 serde_json = "*"
