@@ -1,0 +1,7 @@
+version: '3'
+services:
+  analyzer-dispatcher:
+    image: analyzer-dispatcher.build:latest
+    build:
+      context: ./
+      dockerfile: ./analyzer-dispatcher/Dockerfile
