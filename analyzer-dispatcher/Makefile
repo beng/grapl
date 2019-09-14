@@ -2,8 +2,6 @@
 # NEED A AWS LAMBDA CONTAINER TO RUN THIS ALL LOCALLY
 # TODO: use multi-stage build
 
-
-
 SERVICE_NAME := analyzer-dispatcher
 
 build-artifact:
@@ -20,7 +18,7 @@ fetch-artifact:
 run:
 	$(shell echo '{"name":"ben"}') |  \
 	docker run -i
-		-v $(pwd)/artifacts:/var/task \
+		-v $(shell pwd)/artifacts:/var/task \
 		-e DOCKER_LAMBDA_USE_STDIN=1
 		-e AWS_REGION='us-east-1'
 		-e RUST_BACKTRACE=1
@@ -29,6 +27,6 @@ run:
 
 prepare-deploy:
 	zip ../artifacts/$(SERVICE_NAME)/$(SERVICE_NAME).zip \
-		../artifacts/$(SERVICE_NAME)/bootstrap)
-	$(shell cp ./artifacts/$(SERVICE_NAME)/$(SERVICE_NAME).zip \
-		../grapl-cdk)
+		../artifacts/$(SERVICE_NAME)/bootstrap
+	cp ../artifacts/$(SERVICE_NAME)/$(SERVICE_NAME).zip \
+		../grapl-cdk
