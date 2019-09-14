@@ -1,4 +1,5 @@
-SERVICE_DIRS ?= analyzer-dispatcher
+SERVICE_DIRS ?= analyzer-dispatcher \
+		generic-subgraph-generator
 
 build-artifact:
 	$(foreach makefile, $(SERVICE_DIRS), \

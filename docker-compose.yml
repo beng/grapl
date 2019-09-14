@@ -5,3 +5,9 @@ services:
     build:
       context: ./
       dockerfile: ./analyzer-dispatcher/Dockerfile
+
+  generic-subgraph-generator:
+    image: generic-subgraph-generator:latest
+    build:
+      context: ./
+      dockerfile: ./generic-subgraph-generator/Dockerfile
