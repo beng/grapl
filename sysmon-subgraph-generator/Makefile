@@ -1,7 +1,7 @@
-SERVICE_NAME := generic-subgraph-generator
+SERVICE_NAME := sysmon-subgraph-generator
 
 build-artifact:
-	docker-compose -f ../docker-compose.yml build $(SERVICE_NAME)
+	docker-compose build $(SERVICE_NAME)
 
 fetch-artifact:
 	mkdir -p ../artifacts/$(SERVICE_NAME)
@@ -9,7 +9,7 @@ fetch-artifact:
 	docker create --name extract-$(SERVICE_NAME) $(SERVICE_NAME):latest
 	docker cp extract-$(SERVICE_NAME):/tmp/artifacts/$(SERVICE_NAME) ../artifacts/$(SERVICE_NAME)/bootstrap
 	docker rm -f extract-$(SERVICE_NAME)
-	cp ../artifacts/$(SERVICE_NAME)/bootstrap ./artifacts/
+	#cp ../artifacts/$(SERVICE_NAME)/bootstrap ./artifacts/
 
 # this is only used for running locally as it depends on a aws lambda
 # https://github.com/awslabs/aws-lambda-rust-runtime#docker

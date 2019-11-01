@@ -11,3 +11,10 @@ services:
     build:
       context: ./
       dockerfile: ./generic-subgraph-generator/Dockerfile
+
+  sysmon-subgraph-generator:
+    image: sysmon-subgraph-generator:latest
+    build:
+      context: ./
+      dockerfile: ./sysmon-subgraph-generator/Dockerfile
+    command: cargo run

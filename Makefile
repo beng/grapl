@@ -1,5 +1,6 @@
 SERVICE_DIRS ?= analyzer-dispatcher \
-		generic-subgraph-generator
+		generic-subgraph-generator \
+		sysmon-subgraph-generator
 
 build-artifact:
 	$(foreach makefile, $(SERVICE_DIRS), \

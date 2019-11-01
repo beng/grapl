@@ -16,13 +16,13 @@ fetch-artifact:
 # this is only used for running locally as it depends on a aws lambda
 # https://github.com/awslabs/aws-lambda-rust-runtime#docker
 run:
-	$(shell echo '{"name":"ben"}') |  \
-	docker run -i
+	echo '{"name":"ben"}' |  \
+	docker run -i \
 		-v $(shell pwd)/artifacts:/var/task \
-		-e DOCKER_LAMBDA_USE_STDIN=1
-		-e AWS_REGION='us-east-1'
-		-e RUST_BACKTRACE=1
-		lambci/lambda:provided
+		-e DOCKER_LAMBDA_USE_STDIN=1 \
+		-e AWS_REGION='us-east-1' \
+		-e RUST_BACKTRACE=1 \
+		lambci/lambda:provided \
 		handler
 
 prepare-deploy:
